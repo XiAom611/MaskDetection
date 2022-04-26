@@ -38,7 +38,7 @@ def plot_image(img, annotation, threshold=None, flag=True):
 
         cv2.rectangle(img, (xmin, ymin), (xmax, ymax), framecolor[label], 2)
         label_font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img, str(score), (xmin, ymin), label_font, 0.9, framecolor[label], 2)
+        cv2.putText(img, str(score[:4]), (xmin, ymin), label_font, 0.9, framecolor[label], 2)
 
     return img
 
@@ -56,6 +56,7 @@ if __name__ == '__main__':
     flag = False
     while True:
         check, origin_frame = cam.read()
+        origin_frame = cv2.resize(origin_frame, (640, 320))
         pred = None
         if flag:
             frame = cv2.cvtColor(origin_frame, cv2.COLOR_BGR2RGB)
