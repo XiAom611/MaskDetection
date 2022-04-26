@@ -45,7 +45,7 @@ def plot_image(img, annotation, threshold=None, flag=True):
 if __name__ == '__main__':
     # load model weights
     model = get_model_instance_segmentation(2)
-    model.load_state_dict(torch.load("src/model2.pt"))
+    model.load_state_dict(torch.load("src/model2_2.pt"))
 
     model.eval()
 
